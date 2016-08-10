@@ -39,3 +39,6 @@ ENV MESOS_NATIVE_LIBRARY /usr/local/lib/libmesos.so
 ENV SPARK_OPTS --driver-java-options=-Xms1024M --driver-java-options=-Xmx4096M --driver-java-options=-Dlog4j.logLevel=info
 
 USER $NB_USER
+
+# create soft link - called data folder, shared with host
+RUN (mkdir -p /data/ && ln -sf /data /home/jovyan/work/mac_home)
